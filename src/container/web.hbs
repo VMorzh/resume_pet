@@ -1,0 +1,106 @@
+{{!-- Web languages --}}
+<main>
+    <h1>Web Languages:</h1>
+    <ul>
+        {{#each web.languages}}
+        <li>
+            <h2>{{this.name}} ({{this.version}})</h2>
+            <p>{{this.description}}</p>
+
+            {{!-- HTML elements --}}
+            {{#if this.elements}}
+            <h3>HTML Elements:</h3>
+            <ul>
+                {{#each this.elements}}
+                <li>
+                    <h4>{{this.name}}</h4>
+                    <p>{{this.description}}</p>
+                    {{#if this.attributes}}
+                    <h5>Attributes:</h5>
+                    <ul>
+                        {{#each this.attributes}}
+                        <li>{{this.name}}: {{this.description}}</li>
+                        {{/each}}
+                    </ul>
+                    {{/if}}
+                </li>
+                {{/each}}
+            </ul>
+            {{/if}}
+
+            {{!-- CSS properties --}}
+            {{#if this.properties}}
+            <h3>CSS Properties:</h3>
+            <ul>
+                {{#each this.properties}}
+                <li>
+                    <h4>{{this.name}}</h4>
+                    <p>{{this.description}}</p>
+                    {{#if this.values}}
+                    <h5>Values:</h5>
+                    <ul>
+                        {{#each this.values}}
+                        <li>{{this.value}}: {{this.description}}</li>
+                        {{/each}}
+                    </ul>
+                    {{/if}}
+                </li>
+                {{/each}}
+            </ul>
+            {{/if}}
+
+            {{!-- JavaScript functions --}}
+            {{#if this.functions}}
+            <h3>JavaScript Functions:</h3>
+            <ul>
+                {{#each this.functions}}
+                <li>
+                    <h4>{{this.name}}</h4>
+                    <p>{{this.description}}</p>
+                    {{#if this.parameters}}
+                    <h5>Parameters:</h5>
+                    <ul>
+                        {{#each this.parameters}}
+                        <li>{{this.name}} ({{this.type}}): {{this.description}}</li>
+                        {{/each}}
+                    </ul>
+                    {{/if}}
+                </li>
+                {{/each}}
+            </ul>
+            {{/if}}
+        </li>
+        {{/each}}
+    </ul>
+    <br>
+    <hr>
+    <br>
+</main>
+<br>
+```
+
+Цей шаблон відображає інформацію про веб-мови та їх елементи, властивості та функції. Він перевіряє наявність
+додаткової інформації, такої як атрибути HTML-елементів або параметри функцій, за допомогою умовних блоків.
+
+Далі, вам потрібно скомпілювати шаблон та передати дані в якості об'єкту у функцію Handlebars. Наприклад:
+
+```
+<script id="web-template" type="text/x-handlebars-template">
+  {{!-- Insert template code here --}}
+</script>
+
+<div id="web-container"></div>
+
+<script>
+    const source = document.querySelector('#web-template').innerHTML;
+    const template = Handlebars.compile(source);
+
+    const context = { web: {/* Insert web data here */ } };
+    const html = template(context);
+
+    const container = document.querySelector('#web-container');
+    container.innerHTML = html;
+</script>
+```
+Тут ми компілюємо шаблон, передаємо дані в об'єкті `context`
+та генеруємо HTML-код за допомогою функції `template()
