@@ -1,0 +1,67 @@
+<!-- Program information HTML-коментар 
+Дякую Нейро Друже -->
+
+<main>
+    <h1>Excursion: {{program.excursion.name}}</h1>
+    <p>Location: {{program.excursion.location.city}}, {{program.excursion.location.country}}</p>
+    <p>Date: {{program.excursion.date}}</p>
+
+    <ul>
+        {{#each program.excursion.program}}
+        <li>
+            <h2>{{this.name}} ({{this.type}})</h2>
+            <p>Duration: {{this.duration}} hours</p>
+
+
+            {{#if this.details.museum}}
+            <h3>{{this.details.museum.name}}</h3>
+            <address>Address: {{this.details.museum.location.address}}, {{this.details.museum.location.city}},
+                {{this.details.museum.location.country}}</address>
+            <h4>Exhibits:</h4>
+            <ul>
+                {{#each this.details.museum.exhibits}}
+                <li>
+                    <h4>{{this.name}}</h4>
+                    {{#if this.artist}}
+                    <p>Artist: {{this.artist}}</p>
+                    {{/if}}
+                    <p>Description: {{this.description}}</p>
+                    {{#if this.audio_guide}}
+                    <p>Audio guide available</p>
+                    {{/if}}
+                </li>
+                {{/each}}
+            </ul>
+            {{/if}}
+
+            {{#if this.details.venue}}
+            <h3>{{this.details.venue.name}}</h3>
+            <address>Address: {{this.details.venue.location.address}}, {{this.details.venue.location.city}},
+                {{this.details.venue.location.country}}</address>
+            <h4>Performers:</h4>
+            <ul>
+                {{#each this.details.performers}}
+                <li>{{this.name}} ({{this.type}})</li>
+                {{/each}}
+            </ul>
+            {{/if}}
+
+            {{#if this.details.guide}}
+            <h4>Guide: {{this.details.guide.name}}</h4>
+            <p>Language: {{this.details.guide.language}}</p>
+            <p>Rating: {{this.details.guide.rating}}</p>
+            {{/if}}
+        </li>
+        {{/each}}
+    </ul>
+    <br>
+    <hr>
+
+</main>
+
+
+
+
+{{!-- Цей шаблон відображає інформацію про екскурсію та події програми.
+Він перевіряє наявність додаткової інформації, такої як деталі музейного візиту або виконавців шоу,
+за допомогою умовних блоків.--}}
