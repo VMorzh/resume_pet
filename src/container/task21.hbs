@@ -1,0 +1,78 @@
+{{!--
+<script id="myTemplate" type="text/x-handlebars-template"> --}}
+  <main>
+    <div class="card">
+            <div class="card-body">
+     <div class="card">
+            <div class="card-body">
+    <h1>{{heading.main.title}}</h1>
+    <p>{{heading.main.text}}</p>
+    <button class="btn btn-primary">{{heading.main.button_text.solid}}</button>
+    <br>
+     <br>
+    <button class="btn btn-outline-primary">{{heading.main.button_text.outline}}</button>
+  </div>
+  </div>
+<br>
+  <div class="card">
+            <div class="card-body">
+    <h2>{{heading.second.title}}</h2>
+    <p>{{heading.second.text}}</p>
+    <button class="btn btn-secondary">{{heading.second.button_text.solid}}</button>
+    <br>
+    <br>
+    <button class="btn btn-outline-secondary">{{heading.second.button_text.outline}}</button>
+  </div>
+  </div>
+<br>
+  <div class="card">
+            <div class="card-body">
+    <h3>{{heading.subblock.title}}</h3>
+    <p>{{heading.subblock.text}}</p>
+    <button class="btn btn-dark">{{heading.subblock.button_text.solid}}</button>
+    <br>
+    <br>
+    <button class="btn btn-outline-dark">{{heading.subblock.button_text.outline}}</button>
+  </div>
+    </div>
+</div>
+  </div>
+<br>
+  <div>
+    <div class="card">
+            <div class="card-body">
+      <br>
+    <div class="display-1">{{nested_display.title}}</div>
+     <div class="card">
+            <div class="card-body">
+    <div class="display-4">{{nested_display.children_display.title}}</div>
+    <p>{{nested_display.children_display.text}}</p>
+    <button class="btn btn-warning">{{nested_display.children_display.button.text}}</button>
+    </div>
+</div>
+<h6>{{nested_display.header_text}}</h6>
+    <button class="btn btn-info">{{nested_display.button.text}}</button>
+  </div>
+</div>
+  </div>
+<br>
+  <div class="card">
+            <div class="card-body">
+    <p class="text-uppercase">{{paragraph.title}}</p>
+    <p>{{paragraph.text}}</p>
+    <button class="btn btn-link"><a href="{{paragraph.button.url}}">{{paragraph.button.text}}</a></button>
+          <br>
+          <br>
+          <div class="card">
+            <div class="card-body">
+    <ul>
+      {{#each paragraph.list_name}}
+        <li><a href="{{url}}">{{text}}</a></li>
+      {{/each}}
+    </ul>
+      </div>
+  </div>
+  </div>
+  </div>
+{{!-- </script> --}}
+</main>
