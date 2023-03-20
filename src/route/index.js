@@ -562,7 +562,6 @@ router.get('/web', function (req, res) {
 router.get('/task31', function (req, res) {
   // res.render генерує нам HTML сторінку
 
-
   //            ↙ cюди вводимо назву файлу з сontainer
   res.render('task31', {
     layout: 'bootstrap',
@@ -804,13 +803,17 @@ router.get('/task31', function (req, res) {
           name: 'Globex Corporation',
           link: 'https://www.globex.com/',
         },
+
         {
           name: 'Stark Industries',
           link: 'https://www.starkindustries.com/',
-=======
+        },
+      ],
+    },
+  })
+})
 
 // ================================================================
-
 
 // router.get Створює нам один ентпоїнт
 
@@ -876,7 +879,6 @@ router.get('/task22', function (req, res) {
 router.get('/task21', function (req, res) {
   // res.render генерує нам HTML сторінку
 
-
   //            ↙ cюди вводимо назву файлу з сontainer
   res.render('task21', {
     layout: 'bootstrap',
@@ -936,14 +938,10 @@ router.get('/task21', function (req, res) {
         {
           text: 'Bootstrap',
           url: 'https://getbootstrap.com/',
-
         },
       ],
     },
   })
-
-=======
-
 
   //                  ↑↑ сюди вводимо JSON дані
 })
