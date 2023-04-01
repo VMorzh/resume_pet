@@ -1,0 +1,19 @@
+<section>
+    <div class="nav">
+        <div class="row">
+            {{#each footer}}
+            <div class="col">
+                {{#each this}}
+                <div class="nav-item">
+                    {{#if @last}}
+                    <a href="{{link}}" class="nav-link disabled">{{text}}</a>
+                    {{else}}
+                    <a href="{{link}}" class="nav-link">{{text}}</a>
+                    {{/if}}
+                </div>
+                {{/each}}
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</section>
