@@ -1,0 +1,41 @@
+<main>
+    <section>
+        {{> breadcrumb}}
+    </section>
+    <section>
+        <div class="col-12">
+            <div class="row">
+                <img src="{{newsData.photo}}" alt="News Photo">
+                <h2 class="mt-3 me-1">{{newsData.head.heading}}</h2>
+                <p>{{newsData.head.description}}</p>
+                {{#each newsData.body}}
+                <h4>{{title}}</h4>
+                <p>{{text}}</p>
+                {{/each}}
+            </div>
+        </div>
+    </section>
+    <hr>
+    <section>
+        <div class="row gx-2 gy-3">
+            <div class="display-5 text-center">{{newsOtherBlock.title}}</div>
+            {{#each newsOtherBlock.cards}}
+            <div class="col-3">
+                <div class="card h-100">
+                    <div class="card-body text-bg-dark">
+                        <h6 class="card-header p-1">{{title}}
+                            {{#if idNew}}<span class="badge text-bg-success">New</span>{{/if}}
+                            {{#if isTop}}<span class="badge text-bg-danger">Top</span>{{/if}}
+                        </h6>
+                        <p class="pt-3 pb-2">{{description}}</p>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </section>
+    <hr>
+    <section>
+        {{> shopaction}}
+    </section>
+</main>
