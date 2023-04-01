@@ -1,27 +1,4 @@
 <main>
-
-    <section>
-        <div>
-            <div class="col-11">
-
-                <div class="card">
-                    <div class="nav nav-tabs">
-                        <h4 class="nav-item pt-1 ps-4 pe-5">Shop</h4>
-                        {{#each navigation.links}}
-                        <div class="nav-item px-5">
-                            <a href="{{href}}" class="nav-link">{{text}}</a>
-                        </div>
-                        {{/each}}
-                        <span class="nav-link disabled px-5">Logo</span>
-                    </div>
-                </div>
-
-            </div>
-
-
-    </section>
-    <br>
-    <br>
     <section>
         <div class="row gx-2 gy-3">
             <div class="display-5 text-center">{{newsBlock.title}}</div>
@@ -115,24 +92,5 @@
             </div>
         </div>
     </section>
-
-    <div class="card">
-        <div class="nav">
-            <div class="row g-2">
-                <div class="col-12">
-                    <div class="nav nav-tabs p-2">
-                        {{#each footer}}
-                        {{#each this}}
-                        <div class="col-3">
-                            <div class="nav-item ps-2 pe-2 mx-1"><a href="{{link}}" class="nav-link">{{text}}</a>
-                            </div>
-                        </div>
-                        {{/each}}
-                        {{/each}}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
 </main>
