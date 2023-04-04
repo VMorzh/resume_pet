@@ -1,0 +1,94 @@
+<main>
+    <div class="row g-2">
+        <div class="col-12">
+            <div class="">
+                <h2>{{header}}</h2>
+                <div class="nav nav-tabs">
+                    {{#each purchase.tabs}}
+                    <div class="nav-item">
+                        <a href="#" class="nav-link {{#if @first}}active{{/if}}">
+                            {{this}}</a>
+                    </div>
+                    {{/each}}
+                </div>
+                <div class="col-12 mt-2 mb-2">
+                    <div class="row g-2">
+                        <div class="col-3 me-1">
+                            <input class="form-control" type="text"
+                                placeholder="{{purchase.actionBlock.input.placeholder}}">
+                        </div>
+                        <div class="nav col-8 g-2">
+                            {{#each purchase.actionBlock.buttons}}
+                            <a href="{{this.link}}"
+                                class="me-2 {{#if isSuccess}}btn btn-success{{/if}} {{#if isOutline}}btn btn-outline-success{{/if}} {{#if isDanger}}btn btn-outline-danger{{/if}}">
+                                {{this.text}}</a>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="col-12">
+        <div class="row g-2">
+            {{#each purchase.itemList}}
+            <div class="col-4 p-1">{{this.number}}
+                <h6>{{this.status}}</h6>
+            </div>
+            <div class="col-1">{{this.amount.title}}:
+                <h6>{{this.amount.value}}</h6>
+            </div>
+            <div class="col-5">
+                {{#each this.images}}
+                <img src="{{this}}" alt="purchase image">
+                {{/each}}
+            </div>
+            <div class="col-2"> <a href="{{this.button.link}}"
+                    class="{{#if this.button.isPrimary}}btn btn-primary{{/if}}">{{this.button.text}}</a>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <hr>
+    <h1>{{userInfo.profileData.title}}</h1>
+    <ul>
+        <li>{{userInfo.profileData.fullName.surname.title}}: {{userInfo.profileData.fullName.surname.value}}</li>
+        <li>{{userInfo.profileData.fullName.name.title}}: {{userInfo.profileData.fullName.name.value}}</li>
+        <li>{{userInfo.profileData.fullName.middleName.title}}: {{userInfo.profileData.fullName.middleName.value}}</li>
+        <li>{{userInfo.profileData.otherInfo.birthday.title}}: {{userInfo.profileData.otherInfo.birthday.value}}</li>
+        <li>{{userInfo.profileData.otherInfo.sex.title}}: {{userInfo.profileData.otherInfo.sex.value}}</li>
+        <li>{{userInfo.profileData.otherInfo.language.title}}: {{userInfo.profileData.otherInfo.language.value}}</li>
+    </ul>
+
+    <h2>{{userInfo.recipients.title}}</h2>
+    <ul>
+        {{#each userInfo.recipients.users}}
+        <li>{{this.name}} - {{this.phone}}
+            <a href="{{this.button.link}}">{{this.button.text}}</a>
+        </li>
+        {{/each}}
+    </ul>
+
+    <h2>{{userInfo.contacts.title}}</h2>
+    <ul>
+        <li>{{userInfo.contacts.contactData.phone.title}}: {{userInfo.contacts.contactData.phone.value}}</li>
+        <li>{{userInfo.contacts.contactData.additionalPhone.title}}:
+            {{userInfo.contacts.contactData.additionalPhone.value}}</li>
+        <li>{{userInfo.contacts.contactData.email.title}}: {{userInfo.contacts.contactData.email.value}}</li>
+    </ul>
+
+    <h3>Buttons</h3>
+    {{#each userInfo.buttons}}
+    <button {{#if this.isPrimary}}class="primary" {{/if}} {{#if this.isSecondary}}class="secondary" {{/if}} {{#if
+        this.isDanger}}class="danger" {{/if}}>{{this.text}}</button>
+    {{/each}}
+
+
+
+    <section>
+
+    </section>
+
+    <hr>
+</main>
