@@ -1151,7 +1151,7 @@ router.get('/shopreview', function (req, res) {
         },
       ],
     },
-    
+
     footer: [
       [
         {
@@ -2590,6 +2590,5 @@ router.get('/shopproduct', function (req, res) {
   //                  ↑↑ сюди вводимо JSON дані
 })
 
-=======
 // Підключаємо роутер до бек-енду
 module.exports = router
