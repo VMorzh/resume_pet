@@ -1,0 +1,104 @@
+<main>
+    {{> breadcrumb}}
+    <h1>{{header}}</h1>
+    <div class="row">
+        <div class="col-12 mt-2 mb-4">
+            {{#each sortBlock}}
+            <select>
+                <option selected>{{this.placeholder}}</option>
+                {{#each options}}
+                <option value="{{this.value}}">{{this.text}}</option>
+                {{/each}}
+            </select>
+            {{/each}}
+        </div>
+    </div>
+    <div class="row g-2">
+        <div class="col-2">
+            <div class="card mt-3 mb-3 p-1">
+                <div class="form-label">{{filterBlock.sellers.title}}</div>
+                {{#each filterBlock.sellers.list}}
+                <label>
+                    <input type="checkbox" value="{{this.value}}">{{this.value}}
+                </label>
+                {{/each}}
+                <hr>
+                <div class="form-label">{{filterBlock.brands.title}}</div>
+                <input type="text" placeholder="{{filterBlock.brands.input.placeholder}}">
+                {{#each filterBlock.brands.options}}
+                <label>
+                    <input type="checkbox" value="{{this.value}}">{{this.value}}
+                </label>
+                {{/each}}
+                <hr>
+                <div>
+                    <div class="form-label">{{filterBlock.price.title}}</div>
+                    <div>Від<input class="form-control" type="text" placeholder="{{filterBlock.price.range.from}}">
+                    </div>
+                    <div>До<input class="form-control" type="text" placeholder="{{filterBlock.price.range.to}}"></div>
+                    <button class="btn mt-2 btn-outline-secondary btn-sm"
+                        href="#">{{filterBlock.price.button.text}}</button>
+                </div>
+                {{#each filterBlock.filterList}}
+                <hr>
+                <div class="form-label p-1">
+                    <div>{{this.title}}</div>
+                    {{#each this.options}}
+                    <label>
+                        <input type="checkbox" value="{{this.value}}">{{this.value}}
+                    </label>
+                    {{/each}}
+                </div>
+                {{/each}}
+            </div>
+        </div>
+
+        <div class="col-10">
+            <div class="row g-1">
+                {{#each goodsList}}
+                <div class="card col-5 mt-4 ms-2">
+                    <img src="{{this.img}}" alt="{{this.name}}">
+                    <div>
+                        {{#if this.isHot}}
+                        <span class="badge text-bg-danger">Гаряча пропозиція</span>
+                        {{/if}}
+                        {{#if this.isNew}}
+                        <span class="badge text-bg-success">Новинка</span>
+                        {{/if}}
+                        {{#if this.isFast}}
+                        <span class="badge text-bg-warning">Швидка доставка</span>
+                        {{/if}}
+                        {{#if this.isFree}}
+                        <span class="badge text-bg-info">Безкоштовна доставка</span>
+                        {{/if}}
+                    </div>
+                    <h2>{{this.name}}</h2>
+                    <div class="reviews">
+                        <span class="amount">{{this.review.amount}}</span>
+                        <span class="text">{{this.review.text}}</span>
+                    </div>
+                    <div class="price">{{this.price}}</div>
+                    <div class="delivery">{{this.delivery}}</div>
+                    <div class="buttons">
+                        {{#each this.buttons}}
+                        <a href="{{this.link}}"
+                            class="btn {{#if this.isPrimary}}btn-primary{{else if this.isSecondary}}btn-secondary{{else}}btn-outline-primary{{/if}}">{{this.text}}</a>
+                        {{/each}}
+                    </div>
+                    <ul class="characteristics">
+                        {{#each this.characteristics}}
+                        <li><span class="title">{{this.title}}:</span> <span class="value">{{this.value}}</span></li>
+                        {{/each}}
+                    </ul>
+                </div>
+                {{/each}}
+
+            </div>
+        </div>
+    </div>
+
+    {{> shopaction}}
+    <div>
+        <hr>
+    </div>
+</main>
