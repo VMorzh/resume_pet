@@ -1,0 +1,13 @@
+<div class="col-12 text-bg-dark p-1">
+    <div class="row">
+        <div class="col-8">
+            <h2 class="pt-3 ps-3 pe-2">{{subscribe.header}}</h2>
+            <p class="px-3">{{subscribe.description}}</p>
+        </div>
+        <div class="col-4">
+            {{#each subscribe.buttons}}
+            <a href="{{link}}" class="btn btn-primary text-light mt-4 me-1">{{text}}</a>
+            {{/each}}
+        </div>
+    </div>
+</div>

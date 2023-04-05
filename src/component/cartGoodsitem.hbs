@@ -1,0 +1,28 @@
+<div class="card col-12 mt-2">
+    <div class="row g-1">
+        {{#each goodsBlock}}
+        <div class="nav nav-tabs">
+            <div class="col-2 mt-1 ms-2 mb-1">
+                <img src="{{this.image}}" alt="{{this.name}}">
+            </div>
+            <div class="col-4 mt-1 mb-1 me-2">
+                <b>{{this.name}}</b>
+                <p>{{this.description}}</p>
+            </div>
+            <div class="col-2 mt-4 ms-4">
+                <p>{{this.price.title}}:</p>
+                <b>{{this.price.value}}</b>
+            </div>
+            <div class="col-1 mt-5 ms-2">
+                {{this.amount}}
+            </div>
+            <div class="col-2 mt-3 ms-4">
+                {{#each this.buttons}}
+                <button {{#if isPrimary}} class="btn btn-primary mb-3 ms-4" {{/if}} {{#if isDanger}}
+                    class="btn btn-outline-danger ms-4" {{/if}}>{{this.text}}</button>
+                {{/each}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

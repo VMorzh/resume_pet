@@ -51,39 +51,67 @@
         </div>
     </div>
     <hr>
-    <h1>{{userInfo.profileData.title}}</h1>
-    <ul>
-        <li>{{userInfo.profileData.fullName.surname.title}}: {{userInfo.profileData.fullName.surname.value}}</li>
-        <li>{{userInfo.profileData.fullName.name.title}}: {{userInfo.profileData.fullName.name.value}}</li>
-        <li>{{userInfo.profileData.fullName.middleName.title}}: {{userInfo.profileData.fullName.middleName.value}}</li>
-        <li>{{userInfo.profileData.otherInfo.birthday.title}}: {{userInfo.profileData.otherInfo.birthday.value}}</li>
-        <li>{{userInfo.profileData.otherInfo.sex.title}}: {{userInfo.profileData.otherInfo.sex.value}}</li>
-        <li>{{userInfo.profileData.otherInfo.language.title}}: {{userInfo.profileData.otherInfo.language.value}}</li>
-    </ul>
 
-    <h2>{{userInfo.recipients.title}}</h2>
-    <ul>
+    <h1 class="pt-4 pb-4">{{userInfo.title}}</h1>
+    <div class="row">
+        <div class="card col-12 ">
+
+            <div class="ms-4 mt-2 mb-2">
+                <h2>{{userInfo.profileData.title}}</h2>
+                {{#each userInfo.profileData.fullName}}
+                {{this.title}}
+                {{/each}}
+            </div>
+            <div class="ms-4">
+                {{#each userInfo.profileData.fullName}}
+                <b>{{this.value}}</b>
+                {{/each}}
+            </div>
+            <div class="mt-2 ms-4">
+                {{#each userInfo.profileData.otherInfo}}
+                {{this.title}}
+                {{/each}}
+            </div>
+            <div class="mt-2 ms-4 mb-2">
+                {{#each userInfo.profileData.otherInfo}}
+                <b>{{this.value}}</b>
+                {{/each}}
+            </div>
+            <div class="mb-2 ms-4">
+                {{#each userInfo.buttons}}
+                <a href="#" {{#if this.isPrimary}}class="btn btn-primary" {{/if}} {{#if
+                    this.isSecondary}}class="btn btn-secondary" {{/if}} {{#if this.isDanger}}class="btn btn-danger"
+                    {{/if}}>{{this.text}}</a>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <h2>{{userInfo.recipients.title}}</h2>
         {{#each userInfo.recipients.users}}
-        <li>{{this.name}} - {{this.phone}}
-            <a href="{{this.button.link}}">{{this.button.text}}</a>
-        </li>
+        <div class="col-10">
+            {{this.name}}
+            {{this.phone}}
+            <a href="#" class="btn btn-primary mb-2 mt-2">{{this.button.text}}</a>
+        </div>
         {{/each}}
-    </ul>
-
-    <h2>{{userInfo.contacts.title}}</h2>
-    <ul>
-        <li>{{userInfo.contacts.contactData.phone.title}}: {{userInfo.contacts.contactData.phone.value}}</li>
-        <li>{{userInfo.contacts.contactData.additionalPhone.title}}:
-            {{userInfo.contacts.contactData.additionalPhone.value}}</li>
-        <li>{{userInfo.contacts.contactData.email.title}}: {{userInfo.contacts.contactData.email.value}}</li>
-    </ul>
-
-    <h3>Buttons</h3>
-    {{#each userInfo.buttons}}
-    <button {{#if this.isPrimary}}class="primary" {{/if}} {{#if this.isSecondary}}class="secondary" {{/if}} {{#if
-        this.isDanger}}class="danger" {{/if}}>{{this.text}}</button>
-    {{/each}}
-
+    </div>
+    <div class="card">
+        <h2>{{userInfo.contacts.title}}</h2>
+        <div>
+            <div>{{userInfo.contacts.contactData.phone.title}}: {{userInfo.contacts.contactData.phone.value}}</div>
+            <div>{{userInfo.contacts.contactData.additionalPhone.title}}:
+                {{userInfo.contacts.contactData.additionalPhone.value}}</div>
+            <div>{{userInfo.contacts.contactData.email.title}}: {{userInfo.contacts.contactData.email.value}}</div>
+        </div>
+        <div class="mb-2 ms-4">
+            {{#each userInfo.buttons}}
+            <a href="#" {{#if this.isPrimary}}class="btn btn-primary" {{/if}} {{#if
+                this.isSecondary}}class="btn btn-secondary" {{/if}} {{#if this.isDanger}}class="btn btn-danger"
+                {{/if}}>{{this.text}}</a>
+            {{/each}}
+        </div>
+    </div>
 
 
     <section>

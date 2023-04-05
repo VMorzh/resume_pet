@@ -61,36 +61,30 @@
     </section>
     <hr>
 
-    <section>
-        <div class="card">
-            <div class="nav nav-tabs text-bg-dark p-1">
-                <div>
-                    <h2 class="pt-3 ps-3">{{subscribe.header}}</h2>
-                    <p class="px-3">{{subscribe.description}}</p>
-                </div>
+    <div class="col-12 text-bg-dark p-1">
+        <div class="row">
+            <div class="col-8">
+                <h2 class="pt-3 ps-3 pe-2">{{subscribe.header}}</h2>
+                <p class="px-3">{{subscribe.description}}</p>
+            </div>
+            <div class="col-4">
                 {{#each subscribe.buttons}}
-                <div class="nav nav-tabs p-5">
-                    <button class="btn btn-primary">
-                        <a class="text-light ps-1" href="#">{{text}}</a>
-                    </button>
-                </div>
+                <a href="{{link}}" class="btn btn-primary text-light mt-4 me-1">{{text}}</a>
                 {{/each}}
             </div>
         </div>
-    </section>
+    </div>
+    <hr>
+    <div class="card">
+        <div class="nav nav-tabs text-bg-success p-1 justify-content-center">
+            <h2>{{service.title}}</h2>
 
-    <section>
-        <div class="card">
-            <div class="nav nav-tabs text-bg-success p-1 justify-content-center">
-                <h2>{{service.title}}</h2>
+            <p class="">{{service.description}}</p>
 
-                <p class="">{{service.description}}</p>
-
-                {{#each service.buttons}}
-                <button class="btn btn-primary mb-2" href="{{link}}"> {{text}} </button>
-                {{/each}}
-            </div>
+            {{#each service.buttons}}
+            <button class="btn btn-primary mb-2" href="{{link}}"> {{text}} </button>
+            {{/each}}
         </div>
-    </section>
-
+    </div>
+    <hr>
 </main>

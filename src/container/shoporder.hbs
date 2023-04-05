@@ -114,18 +114,8 @@
             <hr>
             <section>
                 <h3 class="mt-2 mb-3">{{delivery.contact.title}}</h3>
-                <div class="row">
-                    {{#each contacts_data.form.input}}
-                    <div class="col-6 g-2">
-                        <b class="form-label">{{label}}</b>
-                        <input type="text" class="form-control form-control-sm" id="{{@key}}"
-                            placeholder="{{placeholder}}" required>
-                        <span class="form-text text-danger">{{caption}}</span>
-                    </div>
-                    {{/each}}
-                </div>
+                {{> kontakty}}
             </section>
-
             <div>
                 <label for="comment">{{delivery.coment.label}}</label>
                 <textarea id="comment" name="comment" rows="1" placeholder="{{delivery.coment.placeholder}}"></textarea>
