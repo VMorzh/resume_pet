@@ -51,67 +51,64 @@
         </div>
     </div>
     <hr>
+    <section>
+        {{#with userInfo}}
 
-    <h1 class="pt-4 pb-4">{{userInfo.title}}</h1>
-    <div class="row">
-        <div class="card col-12 ">
+        <h2 class="mb-5">{{title}}</h2>
+        <div class="card p-2 my-2">
+            {{#with profile}}
+            <h3>{{title}}</h3>
 
-            <div class="ms-4 mt-2 mb-2">
-                <h2>{{userInfo.profileData.title}}</h2>
-                {{#each userInfo.profileData.fullName}}
-                {{this.title}}
+            <div class="row">
+                {{#each profileData}}
+                <div class="col-4">
+                    <p class="mb-0 text-muted">{{title}}</p>
+                    <p>{{value1}}</p>
+                    <p class="mb-0 text-muted">{{otherInfo}}</p>
+                    <p>{{value2}}</p>
+                    <a class="btn{{#if isPrimary}}btn-primary{{/if}} 
+                    {{#if isSecondary}}btn-outline-secondary{{/if}}
+                            {{#if isDanger}}btn-outline-danger{{/if}}" href="{{link}}">{{text}}</a>
+                </div>
                 {{/each}}
             </div>
-            <div class="ms-4">
-                {{#each userInfo.profileData.fullName}}
-                <b>{{this.value}}</b>
-                {{/each}}
-            </div>
-            <div class="mt-2 ms-4">
-                {{#each userInfo.profileData.otherInfo}}
-                {{this.title}}
-                {{/each}}
-            </div>
-            <div class="mt-2 ms-4 mb-2">
-                {{#each userInfo.profileData.otherInfo}}
-                <b>{{this.value}}</b>
-                {{/each}}
-            </div>
-            <div class="mb-2 ms-4">
-                {{#each userInfo.buttons}}
-                <a href="#" {{#if this.isPrimary}}class="btn btn-primary" {{/if}} {{#if
-                    this.isSecondary}}class="btn btn-secondary" {{/if}} {{#if this.isDanger}}class="btn btn-danger"
-                    {{/if}}>{{this.text}}</a>
+            {{/with}}
+        </div>
+
+        <div class="card p-2 my-2">
+            {{#with recipients}}
+            <h3>{{title}}</h3>
+            <div class="row">
+                {{#each users}}
+                <div class="col-4">
+                    <p>{{name}}</p>
+                    <p>{{phone}}</p>
+                    <a class="btn btn-primary" href="{{button.link}}">{{button.text}}</a>
+                </div>
                 {{/each}}
             </div>
         </div>
-    </div>
-    <div class="card">
-        <h2>{{userInfo.recipients.title}}</h2>
-        {{#each userInfo.recipients.users}}
-        <div class="col-10">
-            {{this.name}}
-            {{this.phone}}
-            <a href="#" class="btn btn-primary mb-2 mt-2">{{this.button.text}}</a>
+        {{/with}}
+        <div class="card p-2 my-2">
+            {{#with contacts}}
+            <h3>{{title}}</h3>
+
+            <div class="row">
+                {{#each contactData}}
+                <div class="col-4">
+                    <p class="text-muted">{{title}}</p>
+                    <p>{{value}}</p>
+
+                    <a class="btn{{#if isPrimary}}btn-primary{{/if}} {{#if isSecondary}}btn-outline-secondary{{/if}}
+                            {{#if isDanger}}btn-outline-danger{{/if}}" href="{{link}}">{{text}}</a>
+                </div>
+                {{/each}}
+            </div>
+            {{/with}}
         </div>
-        {{/each}}
-    </div>
-    <div class="card">
-        <h2>{{userInfo.contacts.title}}</h2>
-        <div>
-            <div>{{userInfo.contacts.contactData.phone.title}}: {{userInfo.contacts.contactData.phone.value}}</div>
-            <div>{{userInfo.contacts.contactData.additionalPhone.title}}:
-                {{userInfo.contacts.contactData.additionalPhone.value}}</div>
-            <div>{{userInfo.contacts.contactData.email.title}}: {{userInfo.contacts.contactData.email.value}}</div>
-        </div>
-        <div class="mb-2 ms-4">
-            {{#each userInfo.buttons}}
-            <a href="#" {{#if this.isPrimary}}class="btn btn-primary" {{/if}} {{#if
-                this.isSecondary}}class="btn btn-secondary" {{/if}} {{#if this.isDanger}}class="btn btn-danger"
-                {{/if}}>{{this.text}}</a>
-            {{/each}}
-        </div>
-    </div>
+
+        {{/with}}
+    </section>
 
 
     <hr>
