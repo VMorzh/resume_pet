@@ -53,28 +53,35 @@
     <hr>
     <section>
         {{#with userInfo}}
-
         <h2 class="mb-5">{{title}}</h2>
-        <div class="card p-2 my-2">
-            {{#with profile}}
-            <h3>{{title}}</h3>
-
-            <div class="row">
-                {{#each profileData}}
+        <div class="card">
+            {{#with profileData}}
+            <h3 class="mt-2 ms-3">{{title}}</h3>
+            <div class="row mt-3 ms-1 mb-2">
+                {{#each fullName}}
                 <div class="col-4">
-                    <p class="mb-0 text-muted">{{title}}</p>
-                    <p>{{value1}}</p>
-                    <p class="mb-0 text-muted">{{otherInfo}}</p>
-                    <p>{{value2}}</p>
-                    <a class="btn{{#if isPrimary}}btn-primary{{/if}} 
-                    {{#if isSecondary}}btn-outline-secondary{{/if}}
-                            {{#if isDanger}}btn-outline-danger{{/if}}" href="{{link}}">{{text}}</a>
+                    <p class="text-muted">{{title}}</p>
+                    <p>{{value}}</p>
+                </div>
+                {{/each}}
+                {{#each otherInfo}}
+                <div class="col-4 mt-1">
+                    <p class="text-muted">{{title}}</p>
+                    <p>{{value}}</p>
+                </div>
+                {{/each}}
+                {{/with}}
+            </div>
+            <div class="row ms-1 mb-2">
+                {{#each buttons}}
+                <div class="col-4">
+                    <a class="btn {{#if isPrimary}}btn-primary{{/if}} 
+                        {{#if isSecondary}}btn-outline-secondary{{/if}}
+                                {{#if isDanger}}btn-outline-danger{{/if}}" href="{{link}}">{{text}}</a>
                 </div>
                 {{/each}}
             </div>
-            {{/with}}
         </div>
-
         <div class="card p-2 my-2">
             {{#with recipients}}
             <h3>{{title}}</h3>
@@ -82,34 +89,35 @@
                 {{#each users}}
                 <div class="col-4">
                     <p>{{name}}</p>
-                    <p>{{phone}}</p>
+                    <p class="text-muted">{{phone}}</p>
                     <a class="btn btn-primary" href="{{button.link}}">{{button.text}}</a>
-                </div>
-                {{/each}}
-            </div>
-        </div>
-        {{/with}}
-        <div class="card p-2 my-2">
-            {{#with contacts}}
-            <h3>{{title}}</h3>
-
-            <div class="row">
-                {{#each contactData}}
-                <div class="col-4">
-                    <p class="text-muted">{{title}}</p>
-                    <p>{{value}}</p>
-
-                    <a class="btn{{#if isPrimary}}btn-primary{{/if}} {{#if isSecondary}}btn-outline-secondary{{/if}}
-                            {{#if isDanger}}btn-outline-danger{{/if}}" href="{{link}}">{{text}}</a>
                 </div>
                 {{/each}}
             </div>
             {{/with}}
         </div>
-
+        <div class="card p-2 my-2">
+            {{#with contacts}}
+            <h3>{{title}}</h3>
+            <div class="row">
+                {{#each contactData}}
+                <div class="col-4">
+                    <p class="text-muted">{{title}}</p>
+                    <p>{{value}}</p>
+                </div>
+                {{/each}}
+                {{#each buttons}}
+                <div class="col-4">
+                    <a href="{{link}}" {{#if this.isPrimary}}class="btn btn-primary" {{/if}} {{#if
+                        this.isSecondary}}class="btn btn-outline-secondary" {{/if}} {{#if
+                        this.isDanger}}class="btn btn-outline-danger" {{/if}}>{{this.text}}</a>
+                </div>
+                {{/each}}
+            </div>
+            {{/with}}
+        </div>
         {{/with}}
     </section>
-
 
     <hr>
 </main>
