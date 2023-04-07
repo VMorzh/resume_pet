@@ -1,0 +1,12 @@
+<div class="col-8">
+    <ol class="breadcrumb ms-2">
+        {{#each breadcrumb}}
+        <li class="breadcrumb-item">
+            {{#if url}} <a class="text-decoration-none" href="{{url}}"> {{name}} </a>
+            {{#if (@last)}} {{/if}}
+            {{else}} {{name}}
+            {{/if}}
+        </li>
+        {{/each}}
+    </ol>
+</div>
