@@ -1,0 +1,66 @@
+<main>
+    <div>
+        <h1>{{name}}</h1>
+        <p><strong>Birthdate:</strong> {{birthdate}}</p>
+        <p><strong>Birthplace:</strong> {{birthplace}}</p>
+        <p><strong>Deathdate:</strong> {{deathdate}}</p>
+        <p><strong>Deathplace:</strong> {{deathplace}}</p>
+        <p><strong>Nationality:</strong> {{nationality}}</p>
+        <p><strong>Occupation:</strong> {{occupation}}</p>
+        <p><strong>Known for:</strong> {{#each known_for}} {{this}} {{/each}}</p>
+    </div>
+
+    <h4>Education:</h4>
+    <ul>
+        {{#each education}}
+        <li>{{degree}} in {{field}} from {{institution}} in {{year}}</li>
+        {{/each}}
+    </ul>
+    <h3>Notable Publications:</h3>
+    <ul>
+        {{#each notable_publications}}
+        <li><strong>{{title}} ({{year}}), published in {{publisher}}</strong></li>
+        {{/each}}
+    </ul>
+    <h4>Partners:</h4>
+    <ul>
+        {{#each partners}}
+        <li>{{name}}, {{relationship}} ({{years}})</li>
+        {{/each}}
+    </ul>
+    <h4>Awards:</h4>
+    <ul>
+        {{#each awards}}
+        <li>{{title}} ({{year}}): {{description}}</li>
+        {{/each}}
+    </ul>
+    <h5>Influences:</h5>
+    <ul>
+        {{#each influences}}
+        <li>{{this}}</li>
+        {{/each}}
+    </ul>
+    <h5>Influenced:</h5>
+    <ul>
+        {{#each influenced}}
+        <li>{{this}}</li>
+        {{/each}}
+    </ul>
+    <h5>Quotes:</h5>
+    <ul>
+        {{#each quotes}}
+        <li>{{this}}</li>
+        {{/each}}
+    </ul>
+    <h3>Major Discoveries:</h3>
+    <ul>
+        {{#each major_discoveries}}
+        <li><strong>{{title}} ({{year}}): {{description}}</strong></li>
+        {{/each}}
+    </ul>
+    <h5>Contributions:</h5>
+    <ul>
+        <li>{{contributions.title}} ({{contributions.year}}): {{bio.contributions.description}}</li>
+    </ul>
+    </div>
+</main>
