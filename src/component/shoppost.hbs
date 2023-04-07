@@ -1,0 +1,16 @@
+<div class="row gx-2 gy-3">
+    <div class="display-5 text-center">{{newsBlock.title}}</div>
+    {{#each newsBlock.cards}}
+    <div class="col">
+        <div class="card h-100">
+            <div class="card-body text-bg-dark">
+                <h6 class="card-header h-25 p-0">{{title}}
+                    {{#if isTop}}<span class="badge text-bg-danger">Top</span>{{/if}}
+                    {{#if isNew}}<span class="badge text-bg-success">New</span>{{/if}}
+                </h6>
+                <p class="pt-2 pb-4">{{description}}</p>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>

@@ -1,0 +1,96 @@
+<main>
+    <section>
+        <div class="row gx-2 gy-3">
+            <div class="display-5 text-center">{{newsBlock.title}}</div>
+
+            {{#each newsBlock.cards}}
+            <div class="col-3">
+                <div class="card h-100">
+                    <div class="card-body text-bg-dark">
+                        <h6 class="card-header h-25 p-0">{{title}}
+                            {{#if isTop}}<span class="badge text-bg-danger">Top</span>{{/if}}
+                            {{#if isNew}}<span class="badge text-bg-success">New</span>{{/if}}
+                        </h6>
+                        <p class="pt-2 pb-4">{{description}}</p>
+                    </div>
+                </div>
+
+            </div>
+            {{/each}}
+        </div>
+
+    </section>
+    <hr>
+    <section>
+
+        <div class="row g-4">
+            <div class="col-12">
+                <div class="nav nav-tabs">
+
+                    {{#each goodsBlock.tabs}}
+                    <div class="nav-item">
+                        <a href="href" {{#if isActive}} class="nav-link active" {{/if}} {{#if isDisabled}}
+                            class="nav-link disabled" {{else}} class="nav-link" {{/if}}>{{text}}</a>
+                    </div>
+                    {{/each}}
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="col-12">
+            <div class="row g-2">
+                {{#each goodsBlock.cards}}
+                <div class="col-4">
+                    <div class="card h-100">
+                        <img src="{{image}}" alt="{{title}}">
+                        <h4 class="m-3">{{title}}
+                            {{#if isHot}}<span
+                                class="bagde text-bg-warning rounded-pill m-1 text-light ps-1 pe-1">HOT!</span>
+                            {{/if}}
+                            {{#if isNew}}<span class="badge text-bg-success m-0 rounded-pill">New</span>{{/if}}
+                        </h4>
+                        <p class="p-2">{{description}}</p>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </section>
+    <hr>
+
+    <section>
+        <div class="card">
+            <div class="nav nav-tabs text-bg-dark p-1">
+                <div>
+                    <h2 class="pt-3 ps-3">{{subscribe.header}}</h2>
+                    <p class="px-3">{{subscribe.description}}</p>
+                </div>
+                {{#each subscribe.buttons}}
+                <div class="nav nav-tabs p-5">
+                    <button class="btn btn-primary">
+                        <a class="text-light ps-1" href="#">{{text}}</a>
+                    </button>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="card">
+            <div class="nav nav-tabs text-bg-success p-1 justify-content-center">
+                <h2>{{service.title}}</h2>
+
+                <p class="">{{service.description}}</p>
+
+                {{#each service.buttons}}
+                <button class="btn btn-primary mb-2" href="{{link}}"> {{text}} </button>
+                {{/each}}
+            </div>
+        </div>
+    </section>
+
+</main>

@@ -1,0 +1,134 @@
+{{!-- страница car --}}
+<main>
+
+    <h1>{{make}} {{model}}</h1>
+    <p>Year: {{year}}, Color: {{color}}</p>
+    <div class="car-details"></div>
+
+    <h3>Features</h3>
+    <ul>
+        <li>Interior
+            <ul>
+                <li>Seats:
+                    <ul>
+                        <li>Material: {{features.interior.seats.material}}</li>
+                        <li>Color: {{features.interior.seats.color}}</li>
+                        <li>Heated: {{#if features.interior.seats.heated}}Yes{{else}}No{{/if}}</li>
+                        <li>Ventilated: {{#if features.interior.seats.ventilated}}Yes{{else}}No{{/if}}</li>
+                    </ul>
+                </li>
+                <li>Dashboard:
+                    <ul>
+                        <li>Material: {{features.interior.dashboard.material}}</li>
+                        <li>Color: {{features.interior.dashboard.color}}</li>
+                        <li>Display:
+                            <ul>
+                                <li>Type: {{features.interior.dashboard.display.type}}</li>
+                                <li>Size: {{features.interior.dashboard.display.size}} inches</li>
+                                <li>Resolution: {{features.interior.dashboard.display.resolution}}</li>
+                                <li>Touchscreen: {{#if
+                                    features.interior.dashboard.display.touchscreen}}Yes{{else}}No{{/if}}</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>Audio:
+                    <ul>
+                        <li>System: {{features.interior.audio.system}}</li>
+                        <li>Speakers: {{features.interior.audio.speakers}}</li>
+                        <li>Subwoofer: {{#if features.interior.audio.subwoofer}}Yes{{else}}No{{/if}}</li>
+                        <li>Bluetooth: {{#if features.interior.audio.bluetooth}}Yes{{else}}No{{/if}}</li>
+                        <li>USB: {{#if features.interior.audio.USB}}Yes{{else}}No{{/if}}</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Exterior
+            <ul>
+                <li>Wheels:
+                    <ul>
+                        <li>Size: {{features.exterior.wheels.size}} inches</li>
+                        <li>Type: {{features.exterior.wheels.type}}</li>
+                        <li>Color: {{features.exterior.wheels.color}}</li>
+                    </ul>
+                </li>
+                <li>Headlights:
+                    <ul>
+                        <li>Type: {{features.exterior.headlights.type}}</li>
+                        <li>Brightness: {{features.exterior.headlights.brightness}}</li>
+                        <li>Automatic: {{#if features.exterior.headlights.automatic}}Yes{{else}}No{{/if}}</li>
+                    </ul>
+                </li>
+                <li>Sunroof:
+                    <ul>
+                        <li>Type: {{features.exterior.sunroof.type}}</li>
+                        <li>Size: {{features.exterior.sunroof.size}}</li>
+                        <li>Automatic: {{#if features.exterior.sunroof.automatic}}Yes{{else}}No{{/if}}</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Safety
+            <ul>
+                <li>Airbags:
+                    <ul>
+                        <li>Front: {{features.safety.airbags.front}}</li>
+                        <li>Side: {{features.safety.airbags.side}}</li>
+                        <li>Knee: {{features.safety.airbags.knee}}</li>
+                        <li>Rear: {{features.safety.airbags.rear}}</li>
+                    </ul>
+                <li>Assistance:</li>
+                <ul>
+                    <li>Blind spot monitoring: +</li>
+                    <li>Rear cross traffic alert: +</li>
+                    <li>Lane departure warning: +</li>
+                    <li>Adaptive cruise control: +</li>
+                    <li>Collision warning: +</li>
+                </ul>
+            </ul>
+        </li>
+    </ul>
+    </li>
+    <li>
+        Engine:
+        <ul>
+            <li>Type: gasoline</li>
+            <li>Displacement: 2.5</li>
+            <li>Horsepower: 206</li>
+            <li>Torque: 186</li>
+            <li>
+                Transmission:
+                <ul>
+                    <li>Type: automatic</li>
+                    <li>Gears: 8</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        Fuel economy:
+        <ul>
+            <li>City: 28</li>
+            <li>Highway: 39</li>
+            <li>Combined: 32</li>
+        </ul>
+    </li>
+    <li>
+        Price:
+        <ul>
+            <li>Base: 25900</li>
+            <li>Destination: 995</li>
+            <li>Options:
+                <ul>
+                    <li>Navigation: 1200</li>
+                    <li>Moonroof: 800</li>
+                    <li>Premium paint: 595</li>
+                </ul>
+            </li>
+            <li>Total: 28990</li>
+        </ul>
+    </li>
+    </ul>
+    <hr>
+
+</main>

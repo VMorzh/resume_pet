@@ -1,0 +1,41 @@
+<main>
+    <h1>{{name}}</h1>
+    <p>{{description}}</p>
+    <h2>Price: ${{price}}</h2>
+    <h2>Category: {{category}}</h2>
+
+    <h3>Features:</h3>
+    <ul>
+        <li>Processor: {{features.processor.brand}} {{features.processor.model}} ({{features.processor.speed}})</li>
+        <li>Memory: {{features.memory.size}} {{features.memory.type}} ({{features.memory.speed}})</li>
+        <li>Storage: {{features.storage.size}} {{features.storage.type}}</li>
+        <li>Display: {{features.display.size}} {{features.display.technology}} ({{features.display.resolution}},
+            {{features.display.color_space}}, {{features.display.brightness}}, {{features.display.refresh_rate}})</li>
+        <li>Graphics: {{features.graphics.brand}} {{features.graphics.model}} ({{features.graphics.memory}})</li>
+        <li>Ports:
+            <ul>
+                {{#each features.ports}}
+                <li>{{this.type}} ({{this.count}})
+                    <ul>
+                        {{#each this.features}}
+                        <li>{{this}}</li>
+                        {{/each}}
+                    </ul>
+                </li>
+                {{/each}}
+            </ul>
+        </li>
+        <li>Battery: {{features.battery.type}} {{features.battery.capacity}} ({{features.battery.life}})</li>
+        <li>Weight: {{features.weight}}</li>
+        <li>Dimensions: {{features.dimensions.height}} x {{features.dimensions.width}} x {{features.dimensions.depth}}
+        </li>
+        <li>Operating System: {{features.operating_system}}</li>
+        <li>Accessories:
+            <ul>
+                {{#each features.accessories}}
+                <li>{{this.name}} (${{this.price}})</li>
+                {{/each}}
+            </ul>
+        </li>
+    </ul>
+</main>

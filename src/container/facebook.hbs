@@ -1,0 +1,61 @@
+<body>
+    <h1>Facebook Users</h1>
+    <ul>
+        {{#each users}}
+        <li>
+            <h2>{{name}}</h2>
+            <p>Gender: {{gender}}</p>
+            <p>Age: {{age}}</p>
+            {{#if friends.length}}
+            <h3>Friends:</h3>
+            <ul>
+                {{#each friends}}
+                <li>
+                    <h4>{{name}}</h4>
+                    <p>Gender: {{gender}}</p>
+                    <p>Age: {{age}}</p>
+                    {{#if mutual_friends.length}}
+                    <h5>Mutual Friends:</h5>
+                    <ul>
+                        {{#each mutual_friends}}
+                        <li>
+                            <h6>{{name}}</h6>
+                            <p>Gender: {{gender}}</p>
+                            <p>Age: {{age}}</p>
+                        </li>
+                        {{/each}}
+                    </ul>
+                    {{/if}}
+                </li>
+                {{/each}}
+            </ul>
+            {{/if}}
+            {{#if groups.length}}
+            <h3>Groups:</h3>
+            <ul>
+                {{#each groups}}
+                <li>
+                    <h4>{{name}}</h4>
+                    <p>{{description}}</p>
+                    {{#if members.length}}
+                    <h5>Members:</h5>
+                    <ul>
+                        {{#each members}}
+                        <li>
+                            <h6>{{name}}</h6>
+                            <p>Gender: {{gender}}</p>
+                            <p>Age: {{age}}</p>
+                        </li>
+                        {{/each}}
+                    </ul>
+                    {{/if}}
+                </li>
+                {{/each}}
+            </ul>
+            {{/if}}
+        </li>
+        {{/each}}
+    </ul>
+</body>
+
+</html>
