@@ -1,0 +1,151 @@
+<main>
+    <section class="row g-2">
+        <div class="col-8">
+            <div>
+                <h1>{{formBlock.header}}</h1>
+                <span>{{formBlock.rating.title}}: {{formBlock.rating.value}}</span>
+            </div>
+
+            <div class="col-12">
+                <div class="nav nav-tabs mt-3 mb-4">
+                    {{#each formBlock.actionBlock.tabs}}
+                    <div class="nav-item">
+                        <a href="#" class="nav-link {{#if isActive}}active{{/if}}">
+                            {{this.text}}</a>
+                    </div>
+                    {{/each}}
+                </div>
+                <hr>
+            </div>
+            <div class="card">
+                <div class="nav nav-tabs d-flex justify-content-between">
+                    <div class="card-body">{{formBlock.actionBlock.field.placeholder}}</div>
+                    <div> <button class="btn btn-secondary mt-2 me-2" href="link">
+                            {{formBlock.actionBlock.field.button.text}}</button>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="">
+                <h2>{{formBlock.feedbackBlock.title}}</h2>
+                <div class="nav nav-tabs">
+                    {{#each formBlock.feedbackBlock.buttons}}
+                    <a href="{{this.link}}"
+                        class="m-2 {{#if isWarning}}btn btn-warning text-light{{/if}} {{#if isSuccess}}btn btn-success text-light{{/if}} {{#if isDanger}}btn btn-danger text-light{{/if}}">{{this.text}}</a>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card mb-2">
+                <img class="p-3" src="{{formBlock.goodsInfo.photo}}" alt="{{formBlock.goodsInfo.name}}">
+                <h4 class="card-item pe-3 ps-3 pb-2">{{formBlock.goodsInfo.name}}</h4>
+            </div>
+            <div class="card mb-2">
+                <h5 class="card-item pe-3 ps-3 pt-2">{{formBlock.goodsInfo.price}}</h5>
+                <div class="card-body col-10">
+                    {{#each formBlock.goodsInfo.buttons}}
+                    <a href="{{this.link}}"
+                        class="m-1 {{#if isPrimary}}btn btn-primary{{/if}} {{#if isSecondary}}btn btn-secondary btn-sm{{/if}}">{{this.text}}</a>
+                    {{/each}}
+                </div>
+            </div>
+            <div class="card mb-2">
+                <div class="card-item p-2">{{formBlock.goodsInfo.seller.title}}:
+                    <b>{{formBlock.goodsInfo.seller.value}}</b>
+                </div>
+            </div>
+        </div>
+        <div class="card mt-3 mb-3">
+            <div class="card p-1">
+                <b>{{reviewList.[0].title.userName}}</b>
+                <span>{{reviewList.[0].title.caption}}</span>
+                <span>{{reviewList.[0].title.date}}</span>
+            </div>
+            <div class="card p-1">
+                <div class="">
+                    <span>{{reviewList.[0].reviewBody.seller.title}}:</span>
+                    <span>{{reviewList.[0].reviewBody.seller.value}}</span>
+                </div>
+                <div class="mt-2">
+                    <span>{{reviewList.[0].reviewBody.rating.title}}:</span>
+                    <span>{{reviewList.[0].reviewBody.rating.value}}</span>
+                </div>
+                <div class="mt-2">
+                    {{#each reviewList.[0].reviewBody.text}}
+                    <p>{{this}}</p>
+                    {{/each}}
+                </div>
+                <div class="mt-1">
+                    <b>{{reviewList.[0].reviewBody.advantages.title}}:</b>
+                    <span>{{reviewList.[0].reviewBody.advantages.text}}</span>
+                </div>
+                <div class="mt-2">
+                    <b>{{reviewList.[0].reviewBody.disadvantages.title}}:</b>
+                    <span>{{reviewList.[0].reviewBody.disadvantages.text}}</span>
+                </div>
+                <div class="mt-2">
+                    {{#each reviewList.[0].reviewBody.images}}
+                    <img src="{{this}}" alt="review image">
+                    {{/each}}
+                </div>
+            </div>
+            <div class="m-3">
+                {{#each reviewList.[0].reviewBody.coments}}
+                <div class="card mb-2 p-1">
+                    <b>{{this.userName}}</b>
+                    <span>{{this.date}}</span <span>{{this.text}}</span>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+
+        <div class="card mt-3 mb-3">
+            <div class="card p-1">
+                <b>{{reviewList.[1].title.userName}}</b>
+                <span>{{reviewList.[1].title.caption}}</span>
+                <span>{{reviewList.[1].title.date}}</span>
+            </div>
+            <div class="card p-1">
+                <div class="">
+                    <span>{{reviewList.[1].reviewBody.seller.title}}:</span>
+                    <span>{{reviewList.[1].reviewBody.seller.value}}</span>
+                </div>
+                <div class="mt-2">
+                    <span>{{reviewList.[1].reviewBody.rating.title}}:</span>
+                    <span>{{reviewList.[1].reviewBody.rating.value}}</span>
+                </div>
+                <div class="mt-2">
+                    {{#each reviewList.[1].reviewBody.text}}
+                    <p>{{this}}</p>
+                    {{/each}}
+                </div>
+                <div class="mt-1">
+                    <b>{{reviewList.[1].reviewBody.advantages.title}}:</b>
+                    <span>{{reviewList.[1].reviewBody.advantages.text}}</span>
+                </div>
+                <div class="mt-2">
+                    <b>{{reviewList.[1].reviewBody.disadvantages.title}}:</b>
+                    <span>{{reviewList.[1].reviewBody.disadvantages.text}}</span>
+                </div>
+                <div class="mt-2">
+                    {{#each reviewList.[1].reviewBody.images}}
+                    <img src="{{this}}" alt="review image">
+                    {{/each}}
+                </div>
+            </div>
+            <div class="m-3">
+                {{#each reviewList.[1].reviewBody.coments}}
+                <div class="card mb-2 p-1">
+                    <b>{{this.userName}}</b>
+                    <span>{{this.date}}</span <span>{{this.text}}</span>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+
+        {{> shopaction}}
+
+    </section>
+    <hr>
+</main>

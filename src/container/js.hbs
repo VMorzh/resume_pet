@@ -1,0 +1,61 @@
+{{!-- js контейнер --}}
+<main>
+    <h2>{{name}}</h2>
+    <div>
+        <span class="badge text-bg-info">description</span>
+        <p>{{description}}</p>
+        <p>Year({{history.year}}) Founder: {{history.founder}} </p>
+    </div>
+    <h4>Types<span class="badge bg-secondary"> Done</span></h4>
+    <ul>
+        {{#each types}}
+
+        <li>{{this}}</li>
+        {{/each}}
+    </ul>
+    <h4>Syntaх<span class="badge bg-secondary"> In process</span></h4>
+    <ol>
+        {{#with syntax}}
+        <li>variables: {{variables}}</li>
+        <li>functions: {{functions}}</li>
+        <li>conditionals: {{conditionals}}</li>
+        <li>loops: {{loops}}</li>
+        <li>classes: {{classes}}</li>
+        {{/with}}
+    </ol>
+    <h4>Features<span class="badge bg-secondary"> Done</span></h4>
+    <ul>
+        {{#each features}}
+        <li>{{this}}</li>
+        {{/each}}
+    </ul>
+    <h4>Libraries<span class="badge bg-secondary"> In process</span></h4>
+
+    <ul>
+        {{#each libraries}}
+        <li>{{this}}</li>
+        {{/each}}
+    </ul>
+    <h4>Tools<span class="badge bg-secondary"> New</span></h4>
+    <ul>
+        {{#each tools}}
+        <li>{{this}}</li>
+        {{/each}}
+    </ul>
+    <button type="button" class="btn btn-primary">
+        Community <span class="badge text-bg-secondary">4</span>
+    </button>
+
+    <ul>
+        {{#each community}}
+        <li>
+            <strong>Name:</strong> {{name}}
+            <br>
+            <strong>Type:</strong> {{type}}
+        </li>
+        {{/each}}
+    </ul>
+
+</main>
+<br>
+<hr>
