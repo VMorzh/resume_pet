@@ -1,0 +1,20 @@
+<div class="col-12">
+    <div class="row g-2">
+        {{#each purchase.itemList}}
+        <div class="col-4 p-1">{{this.number}}
+            <h6>{{this.status}}</h6>
+        </div>
+        <div class="col-1">{{this.amount.title}}:
+            <h6>{{this.amount.value}}</h6>
+        </div>
+        <div class="col-5">
+            {{#each this.images}}
+            <img src="{{this}}" alt="purchase image">
+            {{/each}}
+        </div>
+        <div class="col-2"> <a href="{{this.button.link}}"
+                class="{{#if this.button.isPrimary}}btn btn-primary{{/if}}">{{this.button.text}}</a>
+        </div>
+        {{/each}}
+    </div>
+</div>

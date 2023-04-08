@@ -11,7 +11,7 @@ var header = {
   },
   position: 'Junior Fullstack JS Developer',
   salary: 'Expected salary 7000usd per month',
-  address: 'Arsenalna 4 street 02010 Kyiv Ukraine',
+  address: '3, Kostyolna street 01001 Kyiv, Ukraine',
 }
 var footer = {
   social: {
@@ -29,14 +29,31 @@ var footer = {
     },
   },
 }
+// ================================================================
 
+// router.get Створює нам один ентпоїнт
+
+//           ↙ тут вводимо шлях (PATH) до сторінки
+router.get('/bootstrap', function (req, res) {
+  // res.render генерує нам HTML сторінку
+
+  //            ↙ cюди вводимо назву файлу з сontainer
+  res.render('bootstrap', {
+    layout: 'bootstrap',
+  })
+
+  //                  ↑↑ сюди вводимо JSON дані
+})
 // ================================================================
 // router.get Створює нам один ентпоїнт
 //           ↙ тут вводимо шлях (PATH) до сторінки
-router.get('/', function (req, res) {
+router.get('/index', function (req, res) {
   // res.render генерує нам HTML сторінку
   //            ↙ cюди вводимо назву файлу з сontainer
-  res.render('index', {})
+  res.render('index', {
+    layout: 'index',
+  })
+
   //                  ↑↑ сюди вводимо JSON дані
 })
 
@@ -185,7 +202,7 @@ router.get('/work', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('work', {
     // ↙ сюди вводимо JSON дані
-    layout: 'basic',
+    //layout: '',
     page: {
       title: 'Resume | Work',
     },
@@ -235,17 +252,6 @@ router.get('/work', function (req, res) {
             },
           ],
         },
-        // {
-        //   position: 'Manager',
-        //   company: {
-        //     name: 'Gembird',
-        //     url: 'https://www.gmb.nl/default.aspx',
-        //   },
-        //   duration: {
-        //     from: '10.01.2014',
-        //     to: '01.12.2018',
-        //   },
-        // },
       ],
     },
 
@@ -356,6 +362,7 @@ router.get('/person', function (req, res) {
   })
 })
 // ================================================================
+//              ↙ тут вводимо шлях (PATH) до сторінки
 router.get('/program', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('program', {
@@ -441,6 +448,7 @@ router.get('/program', function (req, res) {
   })
 })
 // ================================================================
+//              ↙ тут вводимо шлях (PATH) до сторінки
 router.get('/web', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('web', {
@@ -665,17 +673,9 @@ router.get('/bio', function (req, res) {
     },
   })
 })
-=======
-// router.get Створює нам один ентпоїнт
 
-
-router.get('/mac', function (req, res) {
-  // res.render генерує нам HTML сторінку
-
-  //            ↙ cюди вводимо назву файлу з сontainer
-  res.render('mac', {
-    layout: 'basic',
-=======
+// ===============
+//              ↙ тут вводимо шлях (PATH) до сторінки
 router.get('/car', function (req, res) {
   // res.render генерує нам HTML сторінку
 
@@ -771,7 +771,10 @@ router.get('/car', function (req, res) {
       },
       total: 28990,
     },
-=======
+  })
+})
+// =======
+//              ↙ тут вводимо шлях (PATH) до сторінки
 router.get('/js', function (req, res) {
   // res.render генерує нам HTML сторінку
 
@@ -851,7 +854,7 @@ router.get('/js', function (req, res) {
   })
   //                  ↑↑ сюди вводимо JSON дані
 })
-
+// ====
 // router.get Створює нам один ентпоїнт
 
 //           ↙ тут вводимо шлях (PATH) до сторінки
@@ -1172,6 +1175,7 @@ router.get('/task22', function (req, res) {
   })
 })
 // ===========================================
+//              ↙ тут вводимо шлях (PATH) до сторінки
 router.get('/task21', function (req, res) {
   // res.render генерує нам HTML сторінку
 
@@ -1241,21 +1245,7 @@ router.get('/task21', function (req, res) {
 
   //                  ↑↑ сюди вводимо JSON дані
 })
-// ================================================================
 
-// router.get Створює нам один ентпоїнт
-
-//           ↙ тут вводимо шлях (PATH) до сторінки
-router.get('/bootstrap', function (req, res) {
-  // res.render генерує нам HTML сторінку
-
-  //            ↙ cюди вводимо назву файлу з сontainer
-  res.render('bootstrap', {
-    layout: 'bootstrap',
-  })
-
-  //                  ↑↑ сюди вводимо JSON дані
-})
 // ================================================================
 // router.get Створює нам один ентпоїнт
 
@@ -3557,11 +3547,17 @@ router.get('/shopcatalog', function (req, res) {
         },
       ],
     ],
-
   })
   //                  ↑↑ сюди вводимо JSON дані
 })
+// ====  router.get Створює нам один ентпоїнт
 
+router.get('/mac', function (req, res) {
+  // res.render генерує нам HTML сторінку
+
+  //            ↙ cюди вводимо назву файлу з сontainer
+  res.render('mac', {
+    layout: 'basic',
 
     name: 'Apple MacBook Pro',
     description: 'The ultimate notebook for power users',

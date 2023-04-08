@@ -5,9 +5,9 @@
         <div class="col-12 mt-2 mb-4">
             {{#each sortBlock}}
             <select>
-                <option selected>{{this.placeholder}}</option>
+                <option selected>{{placeholder}}</option>
                 {{#each options}}
-                <option value="{{this.value}}">{{this.text}}</option>
+                <option value="{{value}}">{{text}}</option>
                 {{/each}}
             </select>
             {{/each}}
@@ -52,9 +52,8 @@
                 {{/each}}
             </div>
         </div>
-
         <div class="col-10">
-            <div class="row g-1">
+            <div class="row g-2">
                 {{#each goodsList}}
                 <div class="card col-5 mt-4 ms-2">
                     <img src="{{this.img}}" alt="{{this.name}}">

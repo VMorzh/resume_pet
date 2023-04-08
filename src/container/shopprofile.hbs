@@ -51,43 +51,72 @@
         </div>
     </div>
     <hr>
-    <h1>{{userInfo.profileData.title}}</h1>
-    <ul>
-        <li>{{userInfo.profileData.fullName.surname.title}}: {{userInfo.profileData.fullName.surname.value}}</li>
-        <li>{{userInfo.profileData.fullName.name.title}}: {{userInfo.profileData.fullName.name.value}}</li>
-        <li>{{userInfo.profileData.fullName.middleName.title}}: {{userInfo.profileData.fullName.middleName.value}}</li>
-        <li>{{userInfo.profileData.otherInfo.birthday.title}}: {{userInfo.profileData.otherInfo.birthday.value}}</li>
-        <li>{{userInfo.profileData.otherInfo.sex.title}}: {{userInfo.profileData.otherInfo.sex.value}}</li>
-        <li>{{userInfo.profileData.otherInfo.language.title}}: {{userInfo.profileData.otherInfo.language.value}}</li>
-    </ul>
-
-    <h2>{{userInfo.recipients.title}}</h2>
-    <ul>
-        {{#each userInfo.recipients.users}}
-        <li>{{this.name}} - {{this.phone}}
-            <a href="{{this.button.link}}">{{this.button.text}}</a>
-        </li>
-        {{/each}}
-    </ul>
-
-    <h2>{{userInfo.contacts.title}}</h2>
-    <ul>
-        <li>{{userInfo.contacts.contactData.phone.title}}: {{userInfo.contacts.contactData.phone.value}}</li>
-        <li>{{userInfo.contacts.contactData.additionalPhone.title}}:
-            {{userInfo.contacts.contactData.additionalPhone.value}}</li>
-        <li>{{userInfo.contacts.contactData.email.title}}: {{userInfo.contacts.contactData.email.value}}</li>
-    </ul>
-
-    <h3>Buttons</h3>
-    {{#each userInfo.buttons}}
-    <button {{#if this.isPrimary}}class="primary" {{/if}} {{#if this.isSecondary}}class="secondary" {{/if}} {{#if
-        this.isDanger}}class="danger" {{/if}}>{{this.text}}</button>
-    {{/each}}
-
-
-
     <section>
-
+        {{#with userInfo}}
+        <h2 class="mb-5">{{title}}</h2>
+        <div class="card">
+            {{#with profileData}}
+            <h3 class="mt-2 ms-3">{{title}}</h3>
+            <div class="row mt-3 ms-1 mb-2">
+                {{#each fullName}}
+                <div class="col-4">
+                    <p class="text-muted">{{title}}</p>
+                    <p>{{value}}</p>
+                </div>
+                {{/each}}
+                {{#each otherInfo}}
+                <div class="col-4 mt-1">
+                    <p class="text-muted">{{title}}</p>
+                    <p>{{value}}</p>
+                </div>
+                {{/each}}
+                {{/with}}
+            </div>
+            <div class="row ms-1 mb-2">
+                {{#each buttons}}
+                <div class="col-4">
+                    <a class="btn {{#if isPrimary}}btn-primary{{/if}} 
+                        {{#if isSecondary}}btn-outline-secondary{{/if}}
+                                {{#if isDanger}}btn-outline-danger{{/if}}" href="{{link}}">{{text}}</a>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        <div class="card p-2 my-2">
+            {{#with recipients}}
+            <h3>{{title}}</h3>
+            <div class="row">
+                {{#each users}}
+                <div class="col-4">
+                    <p>{{name}}</p>
+                    <p class="text-muted">{{phone}}</p>
+                    <a class="btn btn-primary" href="{{button.link}}">{{button.text}}</a>
+                </div>
+                {{/each}}
+            </div>
+            {{/with}}
+        </div>
+        <div class="card p-2 my-2">
+            {{#with contacts}}
+            <h3>{{title}}</h3>
+            <div class="row">
+                {{#each contactData}}
+                <div class="col-4">
+                    <p class="text-muted">{{title}}</p>
+                    <p>{{value}}</p>
+                </div>
+                {{/each}}
+                {{#each buttons}}
+                <div class="col-4">
+                    <a href="{{link}}" {{#if this.isPrimary}}class="btn btn-primary" {{/if}} {{#if
+                        this.isSecondary}}class="btn btn-outline-secondary" {{/if}} {{#if
+                        this.isDanger}}class="btn btn-outline-danger" {{/if}}>{{this.text}}</a>
+                </div>
+                {{/each}}
+            </div>
+            {{/with}}
+        </div>
+        {{/with}}
     </section>
 
     <hr>

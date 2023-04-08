@@ -1,95 +1,84 @@
 <main>
-    <section>
-        <div class="col-12">
-            <div class="row">
-                <h2 class="header mt-5">{{header.title}}</h2>
-                <div class="nav nav-item d-flex justify-content-end">
-                    <a href="{{header.button.link}}" class="btn btn-outline-secondary">{{header.button.text}}</a>
-                </div>
+    <div class="col-12 pb-3">
+        <div class="d-flex justify-content-between">
+            <h1 class="pt-1 pb-2">{{header.title}}</h1>
+            <div class="d-flex justify-content-end">
+                <a href="{{header.button.link}}" class="btn btn-outline-secondary mt-3">
+                    {{header.button.text}}</a>
             </div>
         </div>
-    </section>
-    <div class="goods">
-        {{#each goodsBlock}}
-        <div class="goods-item">
-            <div class="goods-item__image">
-                <img src="{{this.image}}" alt="{{this.name}}">
-            </div>
-            <div class="goods-item__info">
-                <div>{{this.name}}</div>
-                <div>{{this.description}}</div>
-                <div>
-                    <span class="goods-item__price-title">{{this.price.title}}:</span>
-                    <span class="goods-item__price-value">{{this.price.value}}</span>
+    </div>
+    <hr>
+    <div class="card col-12 mt-5 mb-5">
+        <div class="row g-1">
+            {{#each goodsBlock}}
+            <div class="nav nav-tabs">
+                <div class="col-2 mt-1 ms-2 mb-1">
+                    <img src="{{this.image}}" alt="{{this.name}}">
                 </div>
-                <div class="goods-item__amount">{{this.amount}}</div>
-                <div class="goods-item__buttons">
+                <div class="col-4 mt-1 mb-1 me-2">
+                    <b>{{this.name}}</b>
+                    <p>{{this.description}}</p>
+                </div>
+                <div class="col-2 mt-4 ms-4">
+                    <p>{{this.price.title}}:</p>
+                    <b>{{this.price.value}}</b>
+                </div>
+                <div class="col-1 mt-5 ms-2">
+                    {{this.amount}}
+                </div>
+                <div class="col-2 mt-3 ms-4">
                     {{#each this.buttons}}
-                    <button class="btn btn-primary" {{#if isPrimary}} {{/if}} {{#if isDanger}}
-                        class="btn btn-outline-danger" {{/if}}>{{this.text}}</button>
+                    <button {{#if isPrimary}} class="btn btn-primary mb-3 ms-4" {{/if}} {{#if isDanger}}
+                        class="btn btn-outline-danger ms-4" {{/if}}>{{this.text}}</button>
                     {{/each}}
                 </div>
             </div>
-        </div>
-        {{/each}}
-    </div>
-    <hr>
-    <div class="total">
-        <div>{{total.title}}</div>
-        <div>{{total.amount}}</div>
-        <div>{{total.delivery}}</div>
-        <div class="total__buttons">
-            {{#each total.buttons}}
-            <a href="{{this.link}}" class="btn btn-success" {{#if isSuccess}}{{/if}} {{#if isOutline}}
-                class="btn btn-outline-success" {{/if}}>{{this.text}}</a>
             {{/each}}
         </div>
     </div>
     <hr>
-    <section>
-        <div class="col-12">
-            <div class="row g-2">
-                <h3 class="text-center mb-2">{{goodsOtherBlock.title}}</h3>
-                {{#each goodsOtherBlock.cards}}
-                <div class="col-4">
-                    <div class="card h-100">
-                        <img src="{{image}}" alt="{{title}} Image">
-                        <div class="card-body">
-                            <h6>{{title}} {{#if isHot}}
-                                <span class="badge text-bg-warning text-light">Hot</span>
-                                {{/if}}
-                                {{#if idNew}}
-                                <span class="badge text-bg-primary">New</span>
-                                {{/if}}
-                            </h6>
-                            <p class="mt-3 mb-3">{{description}}</p>
-                        </div>
+    <div class="col-12">
+        <div class="row">
+            <div class="col-6">
+                <h5>{{total.title}}</h5>
+                <h4>{{total.amount}}</h4>
+                <p>{{total.delivery}}</p>
+            </div>
+            <div class="col-6">
+                {{#each total.buttons}}
+                <a href="{{this.link}}" {{#if isSuccess}} class="btn btn-success mt-1 ms-4 me-5 mb-2" {{/if}} {{#if
+                    isOutline}} class="btn btn-outline-success mt-2 ms-4 me-2" {{/if}}>{{this.text}}</a>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="col-12 mb-4">
+        <div class="row g-2">
+            <h3 class="text-center mb-2">{{goodsOtherBlock.title}}</h3>
+            {{#each goodsOtherBlock.cards}}
+            <div class="col-4">
+                <div class="card h-100">
+                    <img src="{{image}}" alt="{{title}} Image">
+                    <div class="card-body">
+                        <h6>{{title}} {{#if isHot}}
+                            <span class="badge text-bg-warning text-light">Hot</span>
+                            {{/if}}
+                            {{#if idNew}}
+                            <span class="badge text-bg-primary">New</span>
+                            {{/if}}
+                        </h6>
+                        <p class="mt-3 mb-3">{{description}}</p>
                     </div>
                 </div>
-                {{/each}}
             </div>
+            {{/each}}
         </div>
-    </section>
-    <br>
-    <hr>
-    <section>
-        <div class="card">
-            <div class="nav nav-tabs text-bg-dark p-1">
-                <div>
-                    <h2 class="pt-3 ps-3">{{subscribe.header}}</h2>
-                    <p class="px-3">{{subscribe.description}}</p>
-                </div>
-                {{#each subscribe.buttons}}
-                <div class="nav nav-tabs p-5">
-                    <button class="btn btn-primary">
-                        <a class="text-light ps-1" href="#">{{text}}</a>
-                    </button>
-                </div>
-                {{/each}}
-            </div>
-        </div>
-    </section>
-    <div>
-        <hr>
     </div>
+
+    {{> subscribe}}
+
+    <hr>
+
 </main>
